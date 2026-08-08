@@ -84,4 +84,55 @@ class InvestmentProject extends Model
             ->withPivot('quantity', 'notes_en', 'notes_ar')
             ->withTimestamps();
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Helpers
+    |--------------------------------------------------------------------------
+    */
+
+    /**
+     * Return the full public URL for the project image, or null when absent.
+     */
+    public function imageUrl(): ?string
+    {
+        if ($this->image_path === null) {
+            return null;
+        }
+
+        $url = config('filesystems.disks.public.url');
+
+        return rtrim((string) $url, '/').'/'.ltrim($this->image_path, '/');
+    }
+
+    /**
+     * Build a human-readable expected profit rate string.
+     *
+     * Examples: "20-30%", "20%", or null when both bounds are absent.
+     */
+    public function expectedProfitRateText(): ?string
+    {
+        $min = $this->expected_profit_rate_min;
+        $max = $this->expected_profit_rate_max;
+
+        if ($min === null && $max === null) {
+            return null;
+        }
+
+        if ($max === null || $min === null) {
+            return $this->formatRate($min ?? $max).'%';
+        }
+
+        return $this->formatRate($min).'-'.$this->formatRate($max).'%';
+    }
+
+    /**
+     * Format a numeric profit rate without trailing zeros.
+     */
+    private function formatRate(mixed $value): string
+    {
+        $number = (float) $value;
+
+        return rtrim(rtrim(number_format($number, 2, '.', ''), '0'), '.');
+    }
 }

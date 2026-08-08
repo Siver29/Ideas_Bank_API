@@ -1,39 +1,16 @@
-# Syrian Investment Ideas Bank — Database Structure Phase TODO
+# Syrian Investment Ideas Bank — Cleanup Phase TODO
 
-## Migrations
-- [x] Create governorates migration
-- [x] Create cities migration
-- [x] Create investment_categories migration
-- [x] Create investment_projects migration
-- [x] Create machinery migration
-- [x] Create investment_project_machinery pivot migration
-
-## Enum & Models
-- [x] Create CapitalTier enum
-- [x] Create Governorate model
-- [x] Create City model
-- [x] Create InvestmentCategory model
-- [x] Create InvestmentProject model
-- [x] Create Machinery model
-
-## Factories
-- [x] Create GovernorateFactory
-- [x] Create CityFactory
-- [x] Create InvestmentCategoryFactory
-- [x] Create InvestmentProjectFactory
-- [x] Create MachineryFactory
-
-## Seeders
-- [x] Create GovernorateSeeder (14 governorates)
-- [x] Create CitySeeder (25+ cities)
-- [x] Create InvestmentCategorySeeder (4 categories)
-- [x] Create MachinerySeeder (12 machinery)
-- [x] Create InvestmentProjectSeeder (40+ projects + pivot)
-- [x] Update DatabaseSeeder
-
-## Tests
-- [x] Create DataModelTest (relationships, pivot, enum, seed invariants)
-
-## Validation & Git
-- [x] Run optimize:clear, migrate:fresh --seed, test, pint --test
-- [ ] Review git status/diff, commit, push
+- [x] Inspect existing project structure and conventions (done in inspection report)
+- [x] Delete obsolete Baladna domain code (models, enums, policies, services)
+- [x] Delete obsolete controllers, requests, resources, middleware
+- [x] Delete obsolete factories, seeders, migrations, tests
+- [x] Remove auth/role features and Sanctum-protected routes
+- [x] Rewrite `routes/api.php` to public `/api/v1` scope
+- [x] Clean `bootstrap/app.php` (remove role middleware, keep API JSON handling)
+- [x] Clean `AppServiceProvider` (remove Gate policies)
+- [x] Update project identity (composer description, .env APP_NAME, README)
+- [x] Fix `DatabaseSeeder` and generic users migration
+- [x] Remove obsolete Postman/API documentation files
+- [x] Run validation (optimize:clear, about, route:list, test, pint)
+- [x] Search for and remove obsolete terminology
+- [x] Review git status/diff, commit, and push

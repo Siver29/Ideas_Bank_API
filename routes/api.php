@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\V1\CityController;
+use App\Http\Controllers\Api\V1\GovernorateController;
+use App\Http\Controllers\Api\V1\InvestmentCategoryController;
+use App\Http\Controllers\Api\V1\InvestmentProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,11 +23,30 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->group(function () {
     /*
     |--------------------------------------------------------------------------
-    | Investment Project Endpoints (added in a later phase)
+    | Investment Projects
     |--------------------------------------------------------------------------
-    |
-    | The investment-project domain (projects, categories, governorates,
-    | and cities) will be registered here in the next phase.
-    |
     */
+
+    Route::get('investment-projects', [InvestmentProjectController::class, 'index']);
+    Route::get('investment-projects/{investmentProject}', [InvestmentProjectController::class, 'show']);
+
+    /*
+    |--------------------------------------------------------------------------
+    | Investment Categories
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('investment-categories', [InvestmentCategoryController::class, 'index']);
+    Route::get('investment-categories/{investmentCategory}', [InvestmentCategoryController::class, 'show']);
+
+    /*
+    |--------------------------------------------------------------------------
+    | Governorates & Cities
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('governorates', [GovernorateController::class, 'index']);
+    Route::get('governorates/{governorate}', [GovernorateController::class, 'show']);
+    Route::get('governorates/{governorate}/cities', [GovernorateController::class, 'cities']);
+    Route::get('cities/{city}', [CityController::class, 'show']);
 });
