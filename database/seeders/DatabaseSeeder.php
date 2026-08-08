@@ -7,13 +7,16 @@ use Illuminate\Database\Seeder;
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
-     *
-     * The investment ideas domain (categories, governorates, cities, and
-     * projects) will be seeded in a later phase.
+     * Seed the application's database with the investment ideas domain.
      */
     public function run(): void
     {
-        //
+        $this->call([
+            GovernorateSeeder::class,
+            CitySeeder::class,
+            InvestmentCategorySeeder::class,
+            MachinerySeeder::class,
+            InvestmentProjectSeeder::class,
+        ]);
     }
 }
