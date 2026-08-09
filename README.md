@@ -229,6 +229,10 @@ Seeders (run by `php artisan migrate:fresh --seed`):
 
 ---
 
+## API Reference
+
+> **Complete API documentation** — including every endpoint with its example request and response — is available in [`API_REFERENCE.md`](./API_REFERENCE.md). Students can consult it to build the frontend without reading the backend source code.
+
 ## API Endpoints
 
 All routes are prefixed with `/api/v1`.
