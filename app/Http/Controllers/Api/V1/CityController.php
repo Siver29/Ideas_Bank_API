@@ -10,6 +10,24 @@ use Illuminate\Http\JsonResponse;
 class CityController extends Controller
 {
     /**
+     * List all active cities.
+     */
+    public function index(): JsonResponse
+    {
+        $cities = City::query()
+            ->where('is_active', true)
+            ->whereHas('governorate', fn ($q) => $q->where('is_active', true))
+            ->with('governorate')
+            ->orderBy('id', 'asc')
+            ->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => CityResource::collection($cities),
+        ]);
+    }
+
+    /**
      * Show a single active city.
      */
     public function show(City $city): JsonResponse

@@ -1,16 +1,11 @@
-# Syrian Investment Ideas Bank — Cleanup Phase TODO
+# Syrian Investment Ideas Bank — Documentation & Finalization TODO
 
-- [x] Inspect existing project structure and conventions (done in inspection report)
-- [x] Delete obsolete Baladna domain code (models, enums, policies, services)
-- [x] Delete obsolete controllers, requests, resources, middleware
-- [x] Delete obsolete factories, seeders, migrations, tests
-- [x] Remove auth/role features and Sanctum-protected routes
-- [x] Rewrite `routes/api.php` to public `/api/v1` scope
-- [x] Clean `bootstrap/app.php` (remove role middleware, keep API JSON handling)
-- [x] Clean `AppServiceProvider` (remove Gate policies)
-- [x] Update project identity (composer description, .env APP_NAME, README)
-- [x] Fix `DatabaseSeeder` and generic users migration
-- [x] Remove obsolete Postman/API documentation files
-- [x] Run validation (optimize:clear, about, route:list, test, pint)
-- [x] Search for and remove obsolete terminology
-- [x] Review git status/diff, commit, and push
+- [x] Add missing public endpoints: List cities, List machinery, View machinery
+- [x] Register new routes in `routes/api.php`
+- [x] Add API feature tests (list/show, 422 on query params, inactive hidden, machinery/location in detail)
+- [x] Rewrite `README.md` (description, scope, stack, entities, relationships, categories, tiers, API behavior, install, MySQL, migrations/seeders, storage link, startup, endpoint table, response format, examples, tests, seeder summary, Mermaid ER diagram)
+- [x] Create Postman collection with all documented endpoints + env vars
+- [ ] Final cleanup: search for obsolete terms (Baladna, auth, users, reports, medical, departments, appointments, etc.)
+- [ ] Run final checks (optimize:clear, migrate:fresh --seed, route:list, test, pint)
+- [ ] Review git status/diff, commit, and push
+</content>

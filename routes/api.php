@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\V1\CityController;
 use App\Http\Controllers\Api\V1\GovernorateController;
 use App\Http\Controllers\Api\V1\InvestmentCategoryController;
 use App\Http\Controllers\Api\V1\InvestmentProjectController;
+use App\Http\Controllers\Api\V1\MachineryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,5 +49,22 @@ Route::prefix('v1')->group(function () {
     Route::get('governorates', [GovernorateController::class, 'index']);
     Route::get('governorates/{governorate}', [GovernorateController::class, 'show']);
     Route::get('governorates/{governorate}/cities', [GovernorateController::class, 'cities']);
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cities
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('cities', [CityController::class, 'index']);
     Route::get('cities/{city}', [CityController::class, 'show']);
+
+    /*
+    |--------------------------------------------------------------------------
+    | Machinery
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('machinery', [MachineryController::class, 'index']);
+    Route::get('machinery/{machinery}', [MachineryController::class, 'show']);
 });

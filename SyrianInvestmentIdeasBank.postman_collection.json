@@ -1,0 +1,159 @@
+{
+  "info": {
+    "name": "Syrian Investment Ideas Bank API",
+    "description": "Public REST API for the Syrian Investment Ideas Bank educational MVP. Base URL: http://localhost:8000/api/v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8000/api/v1" },
+    { "key": "investment_project_id", "value": "1" },
+    { "key": "investment_category_id", "value": "1" },
+    { "key": "governorate_id", "value": "1" },
+    { "key": "city_id", "value": "1" },
+    { "key": "machinery_id", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Investment Projects",
+      "item": [
+        {
+          "name": "List investment projects",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/investment-projects"
+          }
+        },
+        {
+          "name": "View investment project",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/investment-projects/{{investment_project_id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Investment Categories",
+      "item": [
+        {
+          "name": "List investment categories",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/investment-categories"
+          }
+        },
+        {
+          "name": "View investment category",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/investment-categories/{{investment_category_id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Governorates",
+      "item": [
+        {
+          "name": "List governorates",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/governorates"
+          }
+        },
+        {
+          "name": "View governorate",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/governorates/{{governorate_id}}"
+          }
+        },
+        {
+          "name": "List governorate cities",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/governorates/{{governorate_id}}/cities"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cities",
+      "item": [
+        {
+          "name": "List cities",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/cities"
+          }
+        },
+        {
+          "name": "View city",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/cities/{{city_id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Machinery",
+      "item": [
+        {
+          "name": "List machinery",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/machinery"
+          }
+        },
+        {
+          "name": "View machinery",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/machinery/{{machinery_id}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Unsupported Query Parameters (422)",
+      "item": [
+        {
+          "name": "Unsupported search query example",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/investment-projects?search=tech"
+          }
+        },
+        {
+          "name": "Unsupported category filter example",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/investment-projects?category_id=1"
+          }
+        },
+        {
+          "name": "Unsupported pagination example",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": "{{base_url}}/investment-projects?page=1"
+          }
+        }
+      ]
+    }
+  ]
+}
